@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Josten Huamán Bellido — Desarrollador Web & Especialista en SEO</title>
+<meta name="description" content="Desarrollador web y especialista en SEO. Diseño, desarrollo y posiciono sitios web para marcas de salud y e-commerce.">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jostenhuamanbellido.github.io/portfolio/">
+<meta property="og:title" content="Josten Huamán Bellido — Desarrollador Web & Especialista en SEO">
+<meta property="og:description" content="Diseño, desarrollo y posiciono sitios web para marcas de salud y e-commerce. WordPress, React y SEO técnico.">
+<meta property="og:image" content="https://jostenhuamanbellido.github.io/portfolio/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_PE">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Josten Huamán Bellido — Desarrollador Web & Especialista en SEO">
+<meta name="twitter:description" content="Diseño, desarrollo y posiciono sitios web para marcas de salud y e-commerce. WordPress, React y SEO técnico.">
+<meta name="twitter:image" content="https://jostenhuamanbellido.github.io/portfolio/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#12151c;
+    --ink-soft:#3a3f4b;
+    --paper:#f6f4ee;
+    --paper-dim:#ece7da;
+    --growth:#2f7a5c;
+    --growth-deep:#20553f;
+    --signal:#c98a2c;
+    --line:#d8d3c5;
+    --line-dark:rgba(255,255,255,.14);
+    --white:#fdfcf9;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink-soft);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{
+    font-family:'Space Grotesk',sans-serif;
+    color:var(--ink);
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px;}
+  section{padding:110px 0;}
+  ::selection{background:var(--growth);color:var(--paper);}
+
+  .ext-icon{width:11px;height:11px;flex:none;}
+  .ext-icon path{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important;}
+  }
+
+  /* ---------- Nav ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(246,244,238,.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .navbar{
+    max-width:1080px;margin:0 auto;padding:18px 32px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .logo{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px;color:var(--ink);}
+  .logo span{color:var(--growth);}
+  nav.paths{display:flex;gap:30px;font-family:'IBM Plex Mono',monospace;font-size:13px;}
+  nav.paths a{position:relative;color:var(--ink-soft);padding-bottom:3px;}
+  nav.paths a::after{
+    content:'';position:absolute;left:0;bottom:0;width:100%;height:1px;
+    background:var(--growth);transform:scaleX(0);transform-origin:right;
+    transition:transform .25s cubic-bezier(.65,0,.35,1);
+  }
+  nav.paths a:hover{color:var(--growth-deep);}
+  nav.paths a:hover::after{transform:scaleX(1);transform-origin:left;}
+  .nav-cta{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;
+    border:1px solid var(--ink);border-radius:6px;padding:8px 16px;
+    color:var(--ink);white-space:nowrap;transition:background .2s,color .2s;
+  }
+  .nav-cta:hover{background:var(--ink);color:var(--paper);}
+  .menu-btn{display:none;background:none;border:none;font-size:22px;cursor:pointer;color:var(--ink);}
+
+  /* ---------- Hero ---------- */
+  .hero{padding-top:92px;padding-bottom:84px;position:relative;}
+  .hero-tag{
+    display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:13px;
+    color:var(--growth-deep);background:rgba(47,122,92,.1);
+    border:1px solid rgba(47,122,92,.3);border-radius:6px;
+    padding:5px 12px;margin-bottom:28px;
+    opacity:0;animation:rise .6s .05s cubic-bezier(.2,.7,.2,1) forwards;
+  }
+  .hero h1{font-size:54px;line-height:1.08;max-width:800px;font-weight:600;}
+  .hero h1 .line{display:block;overflow:hidden;}
+  .hero h1 .line span{display:block;transform:translateY(105%);animation:riseText .7s cubic-bezier(.2,.75,.2,1) forwards;}
+  .hero h1 .line:nth-child(1) span{animation-delay:.12s;}
+  .hero h1 .line:nth-child(2) span{animation-delay:.22s;}
+  .hero h1 .line:nth-child(3) span{animation-delay:.32s;}
+  @keyframes riseText{to{transform:translateY(0);}}
+  @keyframes rise{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+  .hero p.lead{font-size:19px;max-width:600px;margin-top:26px;color:var(--ink-soft);opacity:0;animation:rise .6s .5s cubic-bezier(.2,.7,.2,1) forwards;}
+  .hero-actions{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap;opacity:0;animation:rise .6s .6s cubic-bezier(.2,.7,.2,1) forwards;}
+  .btn{
+    font-family:'Inter',sans-serif;font-weight:600;font-size:15px;
+    padding:13px 24px;border-radius:6px;display:inline-block;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px -12px rgba(18,21,28,.4);}
+  .btn-primary{background:var(--ink);color:var(--paper);}
+  .btn-secondary{border:1px solid var(--ink);color:var(--ink);}
+  .btn-cv{display:inline-flex;align-items:center;gap:8px;padding:13px 6px;color:var(--ink-soft);border-bottom:1px solid var(--line);}
+  .btn-cv:hover{color:var(--growth-deep);border-color:var(--growth);}
+  .btn-cv svg{width:15px;height:15px;flex:none;}
+  .btn-cv svg path{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+  .cv-link{display:inline-flex;align-items:center;gap:6px;}
+  .cv-link svg{width:12px;height:12px;flex:none;}
+  .cv-link svg path{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+
+  .serp{
+    margin-top:58px;border:1px solid var(--line);background:var(--white);
+    border-radius:12px;overflow:hidden;transform-style:preserve-3d;will-change:transform;
+    box-shadow:0 30px 60px -35px rgba(18,21,28,.35);
+    opacity:0;animation:rise .7s .72s cubic-bezier(.2,.7,.2,1) forwards;
+    transition:transform .25s cubic-bezier(.2,.7,.2,1);
+  }
+  .serp-bar{
+    display:flex;align-items:center;gap:8px;padding:10px 16px;
+    background:var(--paper-dim);border-bottom:1px solid var(--line);
+    font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--ink-soft);
+  }
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--line);}
+  .serp-stats{display:grid;grid-template-columns:repeat(3,1fr);}
+  .stat{padding:26px 24px;border-right:1px solid var(--line);}
+  .stat:last-child{border-right:none;}
+  .stat b{display:block;font-family:'Space Grotesk',sans-serif;font-size:30px;color:var(--ink);font-weight:600;}
+  .stat span{font-size:13.5px;color:var(--ink-soft);}
+
+  /* ---------- Section heads ---------- */
+  .section-head{margin-bottom:50px;}
+  .section-path{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--growth-deep);margin-bottom:10px;}
+  .section-head h2{font-size:33px;font-weight:600;max-width:600px;}
+
+  /* ---------- About ---------- */
+  #sobre-mi{border-top:1px solid var(--line);}
+  .about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:56px;}
+  .about-grid p{margin:0 0 16px;font-size:16px;}
+  .edu-block{border-top:1px solid var(--line);padding-top:20px;margin-top:8px;}
+  .edu-item{margin-bottom:16px;}
+  .edu-item .role{font-weight:600;color:var(--ink);font-size:15px;}
+  .edu-item .meta{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--ink-soft);}
+
+  /* ---------- Stack (marquee) ---------- */
+  #stack{background:var(--ink);color:var(--paper);overflow:hidden;}
+  #stack .section-path{color:#8fd7b8;}
+  #stack h2{color:var(--paper);}
+  #stack .wrap{padding:0 0 0 32px;}
+  #stack .section-head{padding-right:32px;}
+  .marquee{width:100%;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);}
+  .marquee + .marquee{margin-top:16px;}
+  .marquee-track{display:flex;width:max-content;gap:14px;animation:scrollLeft 34s linear infinite;}
+  .marquee.rev .marquee-track{animation-name:scrollRight;animation-duration:40s;}
+  .marquee:hover .marquee-track{animation-play-state:paused;}
+  @keyframes scrollLeft{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  @keyframes scrollRight{from{transform:translateX(-50%);}to{transform:translateX(0);}}
+  .tag{
+    font-family:'IBM Plex Mono',monospace;font-size:13.5px;white-space:nowrap;
+    border:1px solid var(--line-dark);border-radius:7px;
+    padding:9px 16px;color:#e7e5df;
+  }
+  .stack-group h3{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;color:#a9b0bd;margin:0 0 18px;padding-left:32px;}
+  .stack-group{margin-bottom:26px;}
+  .stack-group:last-child{margin-bottom:0;}
+
+  /* ---------- Experience timeline ---------- */
+  #experiencia{border-top:1px solid var(--line);}
+  .timeline{border-left:2px solid var(--line);margin-left:6px;}
+  .tl-item{position:relative;padding:0 0 46px 34px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:'';position:absolute;left:-7px;top:4px;
+    width:12px;height:12px;border-radius:50%;
+    background:var(--paper);border:2px solid var(--line);
+    transition:border-color .3s, background .3s, box-shadow .3s;
+  }
+  .tl-item.is-visible::before{border-color:var(--growth);box-shadow:0 0 0 4px rgba(47,122,92,.12);}
+  .tl-date{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--growth-deep);margin-bottom:6px;}
+  .tl-item h3{font-size:18px;font-weight:600;}
+  .tl-item .company{font-size:14.5px;color:var(--ink-soft);margin-bottom:14px;}
+  .tl-item .desc{font-size:15px;max-width:640px;}
+  .tl-list{margin:0;padding:0;list-style:none;max-width:660px;display:flex;flex-direction:column;gap:9px;}
+  .tl-list li{position:relative;padding-left:20px;font-size:15px;color:var(--ink-soft);}
+  .tl-list li::before{content:'';position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--growth);}
+
+  /* ---------- Marcas: live preview gallery ---------- */
+  #marcas{background:var(--paper-dim);border-top:1px solid var(--line);}
+  .marcas-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:36px;}
+  .marcas-nav{display:flex;gap:10px;}
+  .marcas-nav button{
+    width:42px;height:42px;border-radius:50%;border:1px solid var(--ink);
+    background:transparent;color:var(--ink);cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    transition:background .18s,color .18s;
+  }
+  .marcas-nav button:hover{background:var(--ink);color:var(--paper);}
+  .marcas-nav svg{width:16px;height:16px;}
+
+  .marcas-rail{
+    display:flex;gap:22px;overflow-x:auto;padding:6px 6px 26px;margin:0 -6px;
+    scroll-snap-type:x proximity;scrollbar-width:none;
+  }
+  .marcas-rail::-webkit-scrollbar{display:none;}
+  .marca-card{
+    scroll-snap-align:start;flex:0 0 300px;
+    border-radius:16px;overflow:hidden;background:var(--white);
+    border:1px solid var(--line);
+    transform-style:preserve-3d;will-change:transform;
+    transition:box-shadow .25s ease, transform .1s linear;
+    box-shadow:0 18px 34px -26px rgba(18,21,28,.4);
+  }
+  .marca-card.featured{flex-basis:380px;}
+  .marca-card:hover{box-shadow:0 26px 48px -22px rgba(18,21,28,.42);}
+  .marca-shot{position:relative;aspect-ratio:4/3;overflow:hidden;}
+  .marca-plate{position:absolute;inset:0;display:flex;align-items:flex-end;padding:20px;overflow:hidden;transition:transform .5s cubic-bezier(.2,.7,.2,1);}
+  .marca-card:hover .marca-plate{transform:scale(1.045);}
+  .marca-plate::before{content:attr(data-mono);position:absolute;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:150px;line-height:1;letter-spacing:-6px;color:rgba(255,255,255,.16);top:-18px;right:-14px;}
+  .plate-1{background:linear-gradient(150deg,var(--growth-deep),var(--growth) 78%);}
+  .plate-2{background:linear-gradient(150deg,#1c2e3f,#3a5a72 78%);}
+  .plate-3{background:linear-gradient(150deg,#5c3a24,var(--signal) 82%);}
+  .plate-4{background:linear-gradient(150deg,var(--ink),#454b59 80%);}
+  .plate-5{background:linear-gradient(150deg,#2f4a3c,#5b8a6f 80%);}
+  .plate-6{background:linear-gradient(150deg,#3d2f52,#6e5a8c 80%);}
+  .plate-7{background:linear-gradient(150deg,#1f3a3f,#3f7a7c 80%);}
+  .plate-8{background:linear-gradient(150deg,#4a2f3a,#8c5a6e 80%);}
+  .marca-face{position:relative;display:flex;align-items:center;gap:11px;}
+  .marca-favicon-wrap{width:38px;height:38px;border-radius:9px;background:var(--white);display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 6px 14px -6px rgba(0,0,0,.45);}
+  .marca-favicon-wrap img{width:20px;height:20px;object-fit:contain;}
+  .marca-domain{font-family:'IBM Plex Mono',monospace;font-size:12px;color:rgba(255,255,255,.88);}
+  .marca-chrome{position:absolute;top:10px;left:10px;right:10px;display:flex;align-items:center;gap:6px;padding:7px 10px;background:rgba(253,252,249,.92);backdrop-filter:blur(4px);border-radius:7px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);}
+  .marca-chrome .dot{width:6px;height:6px;}
+  .marca-chrome .url{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-left:2px;}
+  .marca-badge{position:absolute;top:10px;right:10px;background:var(--growth);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;padding:4px 9px;border-radius:5px;}
+  .marca-body{padding:18px 20px 20px;}
+  .marca-body h3{font-size:16.5px;font-weight:600;margin-bottom:5px;line-height:1.3;}
+  .marca-role{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--growth-deep);margin-bottom:12px;}
+  .marca-link{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:2px;}
+  .marca-card:hover .marca-link{color:var(--growth-deep);border-color:var(--growth);}
+
+  .marcas-cta{margin-top:8px;border:1px dashed var(--ink);border-radius:12px;padding:28px 30px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px;}
+  .marcas-cta p{margin:0;font-size:15.5px;max-width:520px;}
+
+  /* ---------- Projects ---------- */
+  #proyectos{border-top:1px solid var(--line);}
+  .project-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
+  .project-card{
+    border:1px solid var(--line);background:var(--white);
+    border-radius:12px;overflow:hidden;transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .project-card:hover{transform:translateY(-4px);box-shadow:0 20px 36px -26px rgba(18,21,28,.4);}
+  .project-url{
+    font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--growth-deep);
+    padding:18px 22px 0;
+  }
+  .project-card h3{font-size:20px;padding:6px 22px 0;font-weight:600;}
+  .project-card p{padding:10px 22px 20px;font-size:14.5px;margin:0;}
+  .project-tags{display:flex;flex-wrap:wrap;gap:8px;padding:0 22px 22px;}
+  .project-tags span{
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-soft);
+    border:1px solid var(--line);border-radius:5px;padding:4px 9px;
+  }
+
+  /* ---------- Contact ---------- */
+  #contacto{background:var(--ink);color:#dcdadd;position:relative;overflow:hidden;}
+  #contacto .section-path{color:#8fd7b8;}
+  #contacto h2{color:var(--paper);font-size:38px;max-width:600px;}
+  .contact-row{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:32px;margin-top:22px;}
+  .contact-list{margin-top:38px;display:flex;flex-wrap:wrap;gap:34px;}
+  .contact-list a{font-family:'IBM Plex Mono',monospace;font-size:14px;color:#e7e5df;border-bottom:1px solid var(--line-dark);padding-bottom:4px;display:inline-flex;align-items:center;gap:6px;}
+  .contact-list a:hover{border-color:#8fd7b8;color:#8fd7b8;}
+  footer{padding:26px 0;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#7d8290;border-top:1px solid var(--line-dark);}
+
+  @media (max-width:760px){
+    nav.paths, .nav-cta{display:none;}
+    .menu-btn{display:block;}
+    .hero h1{font-size:36px;}
+    .hero p.lead{font-size:17px;}
+    .serp-stats{grid-template-columns:1fr;}
+    .stat{border-right:none;border-bottom:1px solid var(--line);}
+    .stat:last-child{border-bottom:none;}
+    .about-grid,.project-grid{grid-template-columns:1fr;}
+    section{padding:70px 0;}
+    .wrap{padding:0 22px;}
+    #stack .wrap{padding-left:22px;}
+    .marcas-nav{display:none;}
+    .marca-card{flex-basis:250px;}
+    .marca-card.featured{flex-basis:280px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <div class="logo">josten<span>.</span>dev</div>
+    <nav class="paths">
+      <a href="#sobre-mi">/sobre-mi</a>
+      <a href="#stack">/stack</a>
+      <a href="#experiencia">/experiencia</a>
+      <a href="#marcas">/marcas</a>
+      <a href="#proyectos">/proyectos</a>
+      <a href="#contacto">/contacto</a>
+    </nav>
+    <a class="nav-cta" href="mailto:jostenhuamanbellido@gmail.com">Escríbeme</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="hero-tag">desarrollador web · especialista en seo</span>
+    <h1>
+      <span class="line"><span>Diseño y desarrollo sitios web</span></span>
+      <span class="line"><span>que aparecen donde importa:</span></span>
+      <span class="line"><span>en Google.</span></span>
+    </h1>
+    <p class="lead">Combino código (React, WordPress) con estrategia de SEO técnico y de contenido, para que negocios de salud y e-commerce no solo tengan un sitio bien construido, sino uno que la gente realmente encuentra.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#marcas">Ver sitios en vivo</a>
+      <a class="btn btn-secondary" href="#contacto">Hablemos de tu proyecto</a>
+      <a class="btn-cv" href="CV-Josten-Huaman-Bellido.pdf" download>Descargar CV
+        <svg viewBox="0 0 24 24"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 19h14"/></svg>
+      </a>
+    </div>
+
+    <div class="serp" id="serpCard">
+      <div class="serp-bar">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span style="margin-left:6px;">josten.dev — resultados</span>
+      </div>
+      <div class="serp-stats">
+        <div class="stat"><b data-count="3" data-suffix="+ años">0</b><span>construyendo y posicionando sitios web</span></div>
+        <div class="stat"><b data-count="8" data-suffix="+">0</b><span>marcas y proyectos gestionados</span></div>
+        <div class="stat"><b class="mono" style="font-size:26px;">1.ª página</b><span>el resultado que busco en cada proyecto</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sobre-mi">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-path">/sobre-mi</div>
+      <h2>Ingeniero de software, especializado en desarrollo web y posicionamiento SEO.</h2>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p>Combino conocimientos técnicos de desarrollo (WordPress, Elementor, WooCommerce, React, Astro) con estrategias de SEO técnico y de contenido, usando herramientas como SEMrush, Ahrefs y Google Analytics para mejorar la visibilidad orgánica de cada proyecto.</p>
+        <p>Actualmente trabajo como Desarrollador Web &amp; SEO Specialist en Skin Medical Centro Láser, donde gestiono el posicionamiento de varias marcas del grupo — Medplastic, ScarMD y el sitio del Dr. Enrique Chau. De forma freelance brindo estos mismos servicios a clínicas y negocios de e-commerce.</p>
+        <p>Busco seguir creciendo profesionalmente, aportando valor a proyectos donde la tecnología y el marketing digital se combinen para generar resultados medibles.</p>
+      </div>
+      <div>
+        <div class="edu-block">
+          <div class="edu-item">
+            <div class="role">Ingeniería de Software</div>
+            <div class="meta">Universidad Peruana de Ciencias Aplicadas · 2021–2025</div>
+          </div>
+          <div class="edu-item">
+            <div class="role">Administración y Marketing (no concluido)</div>
+            <div class="meta">UPC</div>
+          </div>
+        </div>
+        <div class="edu-block">
+          <div class="edu-item">
+            <div class="role">Cursos destacados</div>
+            <div class="meta">Escuela de Desarrollo Web · Platzi</div>
+            <div class="meta">SEO Estratégico con IA</div>
+            <div class="meta">AEO y GEO: Posicionamiento en Motores de IA</div>
+            <div class="meta">Curso de React · freeCodeCamp</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-path">/stack</div>
+      <h2>Herramientas que uso todos los días.</h2>
+    </div>
+  </div>
+  <div class="stack-group">
+    <h3>Desarrollo</h3>
+    <div class="marquee">
+      <div class="marquee-track">
+        <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Angular</span><span class="tag">Astro</span><span class="tag">Tailwind</span><span class="tag">Bootstrap</span><span class="tag">WordPress</span><span class="tag">Elementor</span><span class="tag">WooCommerce</span><span class="tag">Git &amp; GitHub</span><span class="tag">Figma</span><span class="tag">SQL</span>
+        <span class="tag" aria-hidden="true">HTML5</span><span class="tag" aria-hidden="true">CSS3</span><span class="tag" aria-hidden="true">JavaScript</span><span class="tag" aria-hidden="true">TypeScript</span><span class="tag" aria-hidden="true">React</span><span class="tag" aria-hidden="true">Angular</span><span class="tag" aria-hidden="true">Astro</span><span class="tag" aria-hidden="true">Tailwind</span><span class="tag" aria-hidden="true">Bootstrap</span><span class="tag" aria-hidden="true">WordPress</span><span class="tag" aria-hidden="true">Elementor</span><span class="tag" aria-hidden="true">WooCommerce</span><span class="tag" aria-hidden="true">Git &amp; GitHub</span><span class="tag" aria-hidden="true">Figma</span><span class="tag" aria-hidden="true">SQL</span>
+      </div>
+    </div>
+  </div>
+  <div class="stack-group">
+    <h3>SEO &amp; Marketing Digital</h3>
+    <div class="marquee rev">
+      <div class="marquee-track">
+        <span class="tag">SEO técnico</span><span class="tag">AEO / GEO</span><span class="tag">SEMrush</span><span class="tag">Ahrefs</span><span class="tag">Google Analytics</span><span class="tag">Google Ads</span><span class="tag">E-commerce</span><span class="tag">Gestión de redes sociales</span><span class="tag">Edición de video (CapCut)</span>
+        <span class="tag" aria-hidden="true">SEO técnico</span><span class="tag" aria-hidden="true">AEO / GEO</span><span class="tag" aria-hidden="true">SEMrush</span><span class="tag" aria-hidden="true">Ahrefs</span><span class="tag" aria-hidden="true">Google Analytics</span><span class="tag" aria-hidden="true">Google Ads</span><span class="tag" aria-hidden="true">E-commerce</span><span class="tag" aria-hidden="true">Gestión de redes sociales</span><span class="tag" aria-hidden="true">Edición de video (CapCut)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experiencia">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-path">/experiencia</div>
+      <h2>De un local de tecnología a gestionar el SEO de un grupo médico.</h2>
+    </div>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-date">Mayo 2026 — Actualidad</div>
+        <h3>Desarrollador Web &amp; SEO Specialist</h3>
+        <div class="company">Skin Medical Centro Láser</div>
+        <ul class="tl-list">
+          <li>Gestiono el desarrollo web y el SEO técnico de las 4 marcas del grupo: Skin Medical, Medplastic, ScarMD y el sitio del Dr. Enrique Chau.</li>
+          <li>Diseño y ejecuto campañas de Google Ads para captación de pacientes, con seguimiento de conversiones y ajuste de presupuesto por marca.</li>
+          <li>Implemento estrategias de posicionamiento en motores de IA (AEO/GEO) para aparecer en respuestas de ChatGPT, Gemini y buscadores conversacionales.</li>
+          <li>Optimizo Core Web Vitals, velocidad de carga y experiencia UX/UI de cada sitio.</li>
+          <li>Investigación de palabras clave y estrategia de contenido enfocada en el sector salud estético.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">Mayo 2026 — Actualidad</div>
+        <h3>Trabajos freelance</h3>
+        <div class="company">Dr. Edwin Vásquez · Clínica Saint Paul · Capilar Center</div>
+        <ul class="tl-list">
+          <li>Desarrollo y mantenimiento de sitios web en WordPress para cada cliente, en paralelo a mi rol principal.</li>
+          <li>SEO on-page y técnico: metadatos, estructura de contenidos, velocidad e indexación.</li>
+          <li>Actualización constante de servicios, precios y contenido médico junto a cada equipo.</li>
+          <li>Reportes periódicos de posicionamiento y visibilidad orgánica en buscadores.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">Septiembre 2024 — Mayo 2026</div>
+        <h3>Especialista en SEO y Desarrollador Web</h3>
+        <div class="company">Clínica Saint Paul</div>
+        <ul class="tl-list">
+          <li>Desarrollo completo del sitio web con WordPress y Elementor, desde la estructura hasta el diseño final.</li>
+          <li>Gestión integral de campañas publicitarias digitales para la clínica.</li>
+          <li>SEO técnico y de contenido orientado a mejorar el posicionamiento orgánico de especialidades médicas.</li>
+          <li>Trabajo directo con el equipo médico para reflejar correctamente servicios y especialidades en el sitio.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">Mayo 2024 — Actualidad</div>
+        <h3>Proyectos personales &amp; freelance</h3>
+        <div class="company">Antonieta.shop · Portafolio de German K</div>
+        <p class="desc">Diseño y desarrollo de tiendas en línea y portafolios para profesionales y pequeñas empresas.</p>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">Agosto — Octubre 2024</div>
+        <h3>Desarrollador Web</h3>
+        <div class="company">Creanding</div>
+        <ul class="tl-list">
+          <li>Desarrollo y mantenimiento de sitios web con WordPress y Elementor para clientes de distintos sectores.</li>
+          <li>Soporte técnico y resolución de incidencias en sitios ya publicados.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">Junio — Septiembre 2024</div>
+        <h3>Desarrollador Web / E-commerce</h3>
+        <div class="company">Tecnovedades</div>
+        <ul class="tl-list">
+          <li>Creación y gestión de tienda en línea con WooCommerce enfocada en productos tecnológicos.</li>
+          <li>Configuración de catálogo, medios de pago y flujo de compra.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="marcas">
+  <div class="wrap">
+    <div class="marcas-head">
+      <div>
+        <div class="section-path">/marcas</div>
+        <h2>Sitios reales, en producción, que diseño, desarrollo y posiciono.</h2>
+      </div>
+      <div class="marcas-nav">
+        <button type="button" id="marcasPrev" aria-label="Anterior">
+          <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button type="button" id="marcasNext" aria-label="Siguiente">
+          <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="marcas-rail" id="marcasRail">
+
+      <a class="marca-card featured" href="https://skinmedical.com.pe/" target="_blank" rel="noopener" data-tilt>
+        <div class="marca-shot">
+          <div class="marca-plate plate-1" data-mono="SK">
+            <div class="marca-face">
+              <div class="marca-favicon-wrap"><img loading="lazy" src="https://www.google.com/s2/favicons?sz=64&domain=skinmedical.com.pe" alt="" onerror="this.parentElement.style.display='none'"></div>
+              <span class="marca-domain">skinmedical.com.pe</span>
+            </div>
+          </div>
+          <div class="marca-chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">skinmedical.com.pe</span></div>
+          <div class="marca-badge">Empleo actual</div>
+        </div>
+        <div class="marca-body">
+          <h3>Skin Medical Centro Láser</h3>
+          <div class="marca-role">Desarrollo web + SEO técnico + Ads</div>
+          <span class="marca-link">Visitar sitio
+            <svg class="ext-icon" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a class="marca-card" href="https://medplasticpe.com/" target="_blank" rel="noopener" data-tilt>
+        <div class="marca-shot">
+          <div class="marca-plate plate-2" data-mono="MP">
+            <div class="marca-face">
+              <div class="marca-favicon-wrap"><img loading="lazy" src="https://www.google.com/s2/favicons?sz=64&domain=medplasticpe.com" alt="" onerror="this.parentElement.style.display='none'"></div>
+              <span class="marca-domain">medplasticpe.com</span>
+            </div>
+          </div>
+          <div class="marca-chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">medplasticpe.com</span></div>
+        </div>
+        <div class="marca-body">
+          <h3>Medplastic</h3>
+          <div class="marca-role">Marca del grupo · SEO</div>
+          <span class="marca-link">Visitar sitio
+            <svg class="ext-icon" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a class="marca-card" href="https://scarmdperu.com/" target="_blank" rel="noopener" data-tilt>
+        <div class="marca-shot">
+          <div class="marca-plate plate-3" data-mono="SC">
+            <div class="marca-face">
+              <div class="marca-favicon-wrap"><img loading="lazy" src="https://www.google.com/s2/favicons?sz=64&domain=scarmdperu.com" alt="" onerror="this.parentElement.style.display='none'"></div>
+              <span class="marca-domain">scarmdperu.com</span>
+            </div>
+          </div>
+          <div class="marca-chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">scarmdperu.com</span></div>
+        </div>
+        <div class="marca-body">
+          <h3>ScarMD</h3>
+          <div class="marca-role">Marca del grupo · SEO</div>
+          <span class="marca-link">Visitar sitio
+            <svg class="ext-icon" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a class="marca-card" href="https://www.enriquechau.com/" target="_blank" rel="noopener" data-tilt>
+        <div class="marca-shot">
+          <div class="marca-plate plate-4" data-mono="EC">
+            <div class="marca-face">
+              <div class="marca-favicon-wrap"><img loading="lazy" src="https://www.google.com/s2/favicons?sz=64&domain=www.enriquechau.com" alt="" onerror="this.parentElement.style.display='none'"></div>
+              <span class="marca-domain">www.enriquechau.com</span>
+            </div>
+          </div>
+          <div class="marca-chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">enriquechau.com</span></div>
+        </div>
+        <div class="marca-body">
+          <h3>Dr. Enrique Chau</h3>
+          <div class="marca-role">Marca del grupo · SEO</div>
+          <span class="marca-link">Visitar sitio
+            <svg class="ext-icon" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a class="marca-card" href="https://cirugiaplastica-edwinvasquez.com/" target="_blank" rel="noopener" data-tilt>
+        <div class="marca-shot">
+          <div class="marca-plate plate-5" data-mono="EV">
+            <div class="marca-face">
+              <div class="marca-favicon-wrap"><img loading="lazy" src="https://www.google.com/s2/favicons?sz=64&domain=cirugiaplastica-edwinvasquez.com" alt="" onerror="this.parentElement.style.display='none'"></div>
+              <span class="marca-domain">cirugiaplastica-edwinvasquez.com</span>
+            </div>
+          </div>
+          <div class="marca-chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">edwinvasquez.com</span></div>
+          <div class="marca-badge">Freelance</div>
+        </div>
+        <div class="marca-body">
+          <h3>Dr. Edwin Vásquez</h3>
+          <div class="marca-role">Freelance · Dev + SEO</div>
+          <span class="marca-link">Visitar sitio
+            <svg class="ext-icon" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a class="marca-card" href="https://clinicasaintpaul.com/" target="_blank" rel="noopener" data-tilt>
+        <div class="marca-shot">
+          <div class="marca-plate plate-6" data-mono="SP">
+            <div class="marca-face">
+              <div class="marca-favicon-wrap"><img loading="lazy" src="https://www.google.com/s2/favicons?sz=64&domain=clinicasaintpaul.com" alt="" onerror="this.parentElement.style.display='none'"></div>
+              <span class="marca-domain">clinicasaintpaul.com</span>
+            </div>
+          </div>
+          <div class="marca-chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">clinicasaintpaul.com</span></div>
+          <div class="marca-badge">Freelance</div>
+        </div>
+        <div class="marca-body">
+          <h3>Clínica Saint Paul</h3>
+          <div class="marca-role">Freelance · Dev + SEO</div>
+          <span class="marca-link">Visitar sitio
+            <svg class="ext-icon" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a class="marca-card" href="https://www.capilarcenter.com/" target="_blank" rel="noopener" data-tilt>
+        <div class="marca-shot">
+          <div class="marca-plate plate-7" data-mono="CC">
+            <div class="marca-face">
+              <div class="marca-favicon-wrap"><img loading="lazy" src="https://www.google.com/s2/favicons?sz=64&domain=www.capilarcenter.com" alt="" onerror="this.parentElement.style.display='none'"></div>
+              <span class="marca-domain">www.capilarcenter.com</span>
+            </div>
+          </div>
+          <div class="marca-chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">capilarcenter.com</span></div>
+          <div class="marca-badge">Freelance</div>
+        </div>
+        <div class="marca-body">
+          <h3>Capilar Center</h3>
+          <div class="marca-role">Freelance · Dev + SEO</div>
+          <span class="marca-link">Visitar sitio
+            <svg class="ext-icon" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a class="marca-card" href="https://www.medicinaesteticaperu.com/" target="_blank" rel="noopener" data-tilt>
+        <div class="marca-shot">
+          <div class="marca-plate plate-8" data-mono="ME">
+            <div class="marca-face">
+              <div class="marca-favicon-wrap"><img loading="lazy" src="https://www.google.com/s2/favicons?sz=64&domain=www.medicinaesteticaperu.com" alt="" onerror="this.parentElement.style.display='none'"></div>
+              <span class="marca-domain">www.medicinaesteticaperu.com</span>
+            </div>
+          </div>
+          <div class="marca-chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">medicinaesteticaperu.com</span></div>
+          <div class="marca-badge">Freelance</div>
+        </div>
+        <div class="marca-body">
+          <h3>Medicina Estética Perú</h3>
+          <div class="marca-role">Freelance · Dev + SEO</div>
+          <span class="marca-link">Visitar sitio
+            <svg class="ext-icon" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="marcas-cta">
+      <p>8 sitios reales en producción — no mockups. Desliza para ver cada uno, o visítalos directamente.</p>
+      <a class="btn btn-primary" href="#contacto">Hablemos de tu proyecto</a>
+    </div>
+  </div>
+</section>
+
+<section id="proyectos">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-path">/proyectos</div>
+      <h2>Proyectos personales que diseñé, desarrollé y posicioné.</h2>
+    </div>
+    <div class="project-grid">
+      <div class="project-card">
+        <div class="project-url">antonieta.shop</div>
+        <h3>Antonieta.shop</h3>
+        <p>Tienda en línea de ropa para mujer construida con WooCommerce y WordPress, con un diseño moderno enfocado en conversión, rendimiento y SEO.</p>
+        <div class="project-tags"><span>WooCommerce</span><span>WordPress</span><span>SEO</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-url">portafolio · german k.</div>
+        <h3>Portafolio de German K.</h3>
+        <p>Portafolio digital profesional en WordPress, con un diseño limpio y atractivo pensado para destacar el trabajo del cliente.</p>
+        <div class="project-tags"><span>WordPress</span><span>Diseño Web</span><span>UX/UI</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-path">/contacto</div>
+      <h2>¿Tienes un sitio que necesita más visibilidad?</h2>
+    </div>
+    <div class="contact-row">
+      <p style="max-width:480px;">Hablemos sobre tu proyecto — ya sea una web nueva o mejorar el posicionamiento de la que ya tienes.</p>
+      <a class="btn btn-primary" href="mailto:jostenhuamanbellido@gmail.com">jostenhuamanbellido@gmail.com</a>
+    </div>
+    <div class="contact-list">
+      <a href="tel:+51938604169">(+51) 938 604 169</a>
+      <a href="https://www.linkedin.com/in/jostenhuamanbellido/" target="_blank" rel="noopener">LinkedIn <svg class="ext-icon" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      <a href="https://www.github.com/JostenHuaman" target="_blank" rel="noopener">GitHub <svg class="ext-icon" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      <a class="cv-link" href="CV-Josten-Huaman-Bellido.pdf" download>Descargar CV <svg viewBox="0 0 24 24"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 19h14"/></svg></a>
+      <span>Lima, Perú</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© 2026 Josten Marc Huamán Bellido</div>
+</footer>
+
+<script>
+(function(){
+  // Timeline dot lights up as each role scrolls into view
+  var tlItems = document.querySelectorAll('.tl-item');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('is-visible'); }
+      });
+    },{threshold:.3, rootMargin:'0px 0px -80px 0px'});
+    tlItems.forEach(function(el){ io.observe(el); });
+  } else {
+    tlItems.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+
+  // Count-up stats
+  var counters = document.querySelectorAll('[data-count]');
+  var countersDone = false;
+  function runCounters(){
+    if(countersDone) return;
+    countersDone = true;
+    counters.forEach(function(el){
+      var target = parseInt(el.getAttribute('data-count'),10);
+      var suffix = el.getAttribute('data-suffix') || '';
+      var start = null, dur = 900;
+      function step(ts){
+        if(!start) start = ts;
+        var p = Math.min((ts-start)/dur,1);
+        var eased = 1 - Math.pow(1-p,3);
+        el.textContent = Math.round(eased*target) + suffix;
+        if(p<1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  var serpCard = document.getElementById('serpCard');
+  // Hero stats are above the fold on load, so start the count-up directly
+  // once the entrance animation has had time to run (with an IO fallback
+  // in case the card sits lower on very small screens).
+  setTimeout(runCounters, 1200);
+  if(serpCard && 'IntersectionObserver' in window){
+    var io2 = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ runCounters(); io2.disconnect(); } });
+    },{threshold:.15});
+    io2.observe(serpCard);
+  }
+
+  // Tilt on hero card + marca cards (pointer-driven, desktop only)
+  function attachTilt(el, maxDeg){
+    el.addEventListener('pointermove', function(ev){
+      if(ev.pointerType !== 'mouse') return;
+      var r = el.getBoundingClientRect();
+      var px = (ev.clientX - r.left)/r.width - .5;
+      var py = (ev.clientY - r.top)/r.height - .5;
+      el.style.transform = 'perspective(900px) rotateY('+(px*maxDeg)+'deg) rotateX('+(-py*maxDeg)+'deg) translateY(-2px)';
+    });
+    el.addEventListener('pointerleave', function(){
+      el.style.transform = '';
+    });
+  }
+  if(serpCard) attachTilt(serpCard, 5);
+  document.querySelectorAll('[data-tilt]').forEach(function(el){ attachTilt(el, 6); });
+
+  // Marcas rail arrows
+  var rail = document.getElementById('marcasRail');
+  var prev = document.getElementById('marcasPrev');
+  var next = document.getElementById('marcasNext');
+  if(rail && prev && next){
+    var scrollAmt = function(){ return Math.min(340, rail.clientWidth*.8); };
+    prev.addEventListener('click', function(){ rail.scrollBy({left:-scrollAmt(), behavior:'smooth'}); });
+    next.addEventListener('click', function(){ rail.scrollBy({left:scrollAmt(), behavior:'smooth'}); });
+  }
+})();
+</script>
+
+</body>
+</html>
