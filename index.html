@@ -319,6 +319,20 @@
   .seo-score span{font-size:12px;color:#9a9ea9;}
   .seo-panel .seo-note{margin-top:18px;font-size:12.5px;color:#8b8fa0;line-height:1.6;}
   .seo-panel .seo-note a{color:#8fd7b8;border-bottom:1px solid rgba(143,215,184,.4);}
+  .seo-tool-cta{
+    margin-top:44px;border:1px dashed var(--line-dark);border-radius:12px;
+    padding:26px 28px;display:flex;align-items:center;justify-content:space-between;
+    flex-wrap:wrap;gap:20px;
+  }
+  .seo-tool-cta .tag{border:1px solid rgba(143,215,184,.35);background:rgba(47,122,92,.14);color:#8fd7b8;margin-bottom:10px;padding:5px 11px;border-radius:6px;display:inline-block;}
+  .seo-tool-cta h3{color:var(--paper);font-size:18px;font-weight:600;margin-bottom:6px;}
+  .seo-tool-cta p{margin:0;font-size:14px;color:#a7abb8;max-width:460px;}
+  .seo-tool-link{
+    font-family:'IBM Plex Mono',monospace;font-size:13.5px;font-weight:500;
+    color:var(--ink);background:#8fd7b8;border-radius:7px;padding:11px 18px;
+    white-space:nowrap;transition:background .18s;flex:none;
+  }
+  .seo-tool-link:hover{background:#fdfcf9;}
 
   /* ---------- Contact ---------- */
   #contacto{background:var(--ink);color:#dcdadd;position:relative;overflow:hidden;}
@@ -843,6 +857,15 @@
         </div>
         <p class="seo-note">Medido con <a href="https://pagespeed.web.dev/" target="_blank" rel="noopener">Google PageSpeed Insights</a> sobre este mismo sitio en producción.</p>
       </div>
+    </div>
+
+    <div class="seo-tool-cta">
+      <div>
+        <span class="mono tag">herramienta gratuita</span>
+        <h3>Generador de Schema.org para negocios locales</h3>
+        <p>Construí esta herramienta porque genero este marcado constantemente para mis clientes de salud. Completa un formulario y obtén el JSON-LD listo para pegar.</p>
+      </div>
+      <a class="seo-tool-link" href="https://jostenhuamanbellido.github.io/local-business-schema-generator/" target="_blank" rel="noopener">Probar el generador →</a>
     </div>
   </div>
 </section>
